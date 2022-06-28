@@ -1,0 +1,36 @@
+mixin header
+    header.header
+        .container
+            a.header__logo(href="/"): img(src="img/logo.svg", alt="KAMI ЦТО логотип", width="158" height="84")
+            nav.header__menu
+                ul
+                    li.w-children
+                        a(href="#") Обучающий центр
+                        button(type="button") Открыть подменю
+                        ul
+                            li: a(href="#") Основные сведения
+                            li: a(href="#") Структура организации
+                            li: a(href="#") Правила приема
+                            li: a(href="#") Документы для выпускников
+                    li.w-children
+                        a(href="#") Программы обучения
+                        button(type="button") Открыть подменю
+                        ul
+                            li: a(href="#") График обучения
+                            li: a(href="#") Программирование и эксплуатация станков с ЧПУ HNC Токарная обработка
+                            li: a(href="#") Программирование и эксплуатация станков с ЧПУ HNC Фрезерная обработка
+                            li: a(href="#") Программирование и эксплуатация станков с ЧПУ HNC 5-осевая обработка
+                            li: a(href="#") Работа с датчиками измерения инструмента и детали
+                            li: a(href="#") Оператор станков с программным управлением
+                            li: a(href="#") Обслуживание и сервис станков с ЧПУ HNC
+                            li: a(href="#") Повышение разряда операторов
+                    li: a(href="#service") Трудоустройство
+                    li: a(href="#about") Новости
+                    li: a(href="#footer") Контакты
+            .header__contacts
+                .header__contacts-item.header__contacts-item_phone
+                    a(href="tel:88008880099") 8 (800) 888-00-99
+                .header__contacts-item.header__contacts-item_mail
+                    a(href="mailto:cte-kami@stanki.ru" target="_blank") cte-kami@stanki.ru
+            button.header__callback(type="button") Обратный звонок
+            button.header__burger(type="button") Открыть меню

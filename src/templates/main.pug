@@ -1,0 +1,199 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block beforeBody
+    -bodyClasses.push('front')
+
+block content
+    main.page.page_front
+        section.front-slider
+            .swiper
+                .swiper-wrapper
+                    .swiper-slide: .front-slider__item(style="background-image: url('img/content/front-slider_1.jpg')")
+                        .front-slider__content
+                            .front-slider__title Центр технического обучения КАМИ
+                            p.front-slider__description Время получить новые знания
+                            .front-slider__buttons
+                                a.btn.btn_main(href="#") Программы обучения
+                                a.btn.btn_light(href="#") Оставить заявку
+                    .swiper-slide: .front-slider__item.swiper-lazy(data-background='img/content/front-slider_1.jpg')
+                        .swiper-lazy-preloader
+                        .front-slider__content
+                            .front-slider__title Центр технического обучения КАМИ Центр технического обучения КАМИ
+                            p.front-slider__description Время получить новые знания Время получить новые знания Время получить новые знания Время получить
+                            .front-slider__buttons
+                                a.btn.btn_main(href="#") Программы обучения
+                                a.btn.btn_light(href="#") Оставить заявку
+                .swiper-pagination
+
+        section.front-block
+            .container
+                h2.front-block__title Учебные программы
+                .front-block__content
+                    .cards-list
+                        ul
+                            - let cardsItemFront = 0
+                            while cardsItemFront < 5
+                                li.cards-list__item
+                                    a.cards-list__item-img-wrapper(href="#")
+                                        img(src="img/content/card-item-1.jpg" alt="Название программы")
+                                    .cards-list__item-content
+                                        .cards-list__item-labels
+                                            span.cards-list__item-label.cards-list__item-label_red Очная форма обучения
+                                            span.cards-list__item-label 72 ак. часа
+                                        a.cards-list__item-name(href="#") Программирование и эксплуатация станков с ЧПУ HNC Токарная обработка
+                                - cardsItemFront += 1
+                            li.cards-list__item
+                                a.cards-list__item-img-wrapper(href="#")
+                                    img(src="img/content/card-item-2.jpg" alt="Название программы")
+                                .cards-list__item-content
+                                    .cards-list__item-labels
+                                        span.cards-list__item-label.cards-list__item-label_red Очная форма обучения
+                                        span.cards-list__item-label 72 ак. часа
+                                    a.cards-list__item-name(href="#") Оператор станков с программным управлением
+                            li.cards-list__item
+                                a.cards-list__item-img-wrapper(href="#")
+                                    img(src="img/content/card-item-1.jpg" alt="Название программы")
+                                .cards-list__item-content
+                                    .cards-list__item-labels
+                                        span.cards-list__item-label.cards-list__item-label_red Очная форма обучения
+                                        span.cards-list__item-label 72 ак. часа
+                                    a.cards-list__item-name(href="#") Повышение разряда операторов
+        section.front-block.front-block_gray.front-block_noline
+            .container
+                .front-block__title Ответы на часто задаваемые вопросы
+                .front-block__content
+                    .faq
+                        .faq__column
+                            - let faqItems = 0
+                            while faqItems < 2
+                                .faq__item
+                                    .faq__item-head
+                                        span Чем я смогу заниматься после прохождения курса?
+                                        button(type="button")
+                                    .faq__item-body
+                                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                .faq__item
+                                    .faq__item-head
+                                        span Чем я смогу заниматься после прохождения курса? смогу заниматься смогу
+                                        button(type="button")
+                                    .faq__item-body
+                                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu
+                                - faqItems += 1
+                        .faq__column
+                            while faqItems < 4
+                                .faq__item
+                                    .faq__item-head
+                                        span Чем я смогу заниматься после прохождения курса? смогу заниматься смогу
+                                        button(type="button")
+                                    .faq__item-body
+                                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididu
+                                .faq__item
+                                    .faq__item-head
+                                        span Чем я смогу заниматься после прохождения курса?
+                                        button(type="button")
+                                    .faq__item-body
+                                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                                - faqItems += 1
+        section.cert-block
+            .container
+                a.cert-block__img(href="img/content/cert.jpg" data-fancybox="cert")
+                    img(src="img/content/cert.jpg", alt="Сертификат")
+                .cert-block__content
+                    h2.cert-block__title: span Сертификат официального <br>представителя HN
+                    .cert-block__text
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        ul
+                            li Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            li Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        section.front-block.front-block_gray
+            .container
+                .front-block__title Наши преподаватели
+                .front-block__content
+                    .teachers.teachers_slider.gallery
+                        .swiper.js-gallery-4-items
+                            .swiper-wrapper
+                                - let teachersCounter = 0
+                                while teachersCounter < 10
+                                    .swiper-slide: .teachers__item
+                                        .teachers__item-name Иванов Василий Иванович
+                                        .teachers__item-position Преподаватель по токарному оборудованию
+                                        .teachers__item-img
+                                            img.swiper-lazy(data-src="img/content/teachers1.jpg", alt="Имя")
+                                            .swiper-lazy-preloader
+                                    - teachersCounter += 1
+                            .swiper-controls
+                                .swiper-button-prev
+                                .swiper-pagination
+                                .swiper-button-next
+        section.front-block
+            .container
+                .front-block__title Фото с обучения
+                .front-block__content
+                    .gallery.gallery_fw
+                        .swiper.js-gallery-auto-items
+                            .swiper-wrapper
+                                .swiper-slide: a(href="img/content/teachers1.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/teachers1.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                                .swiper-slide: a(href="img/content/gallery-1.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/gallery-1.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                                .swiper-slide: a(href="img/content/gallery-2.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/gallery-2.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                                .swiper-slide: a(href="img/content/gallery-3.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/gallery-3.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                                .swiper-slide: a(href="img/content/gallery-1.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/gallery-1.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                                .swiper-slide: a(href="img/content/gallery-2.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/gallery-2.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                                .swiper-slide: a(href="img/content/gallery-3.jpg" data-fancybox="front-gallery")
+                                    img.swiper-lazy(data-src="img/content/gallery-3.jpg", alt="Имя")
+                                    .swiper-lazy-preloader
+                            .swiper-controls
+                                .swiper-button-prev
+                                .swiper-pagination
+                                .swiper-button-next
+
+        section.front-block.front-block_gray
+            .container
+                .front-block__title Новости <a href="/news/" class="front-block__title-link">Все новости</a>
+                .front-block__content
+                    .news.news_slider.gallery
+                        .swiper.js-gallery-4-items
+                            .swiper-wrapper
+                                .swiper-slide: a.news__item(href="#")
+                                    .news__item-title Ассоциация «КАМИ» приглашает вас на выставку «ИНДУСТРИЯ КАМНЯ 2022»
+                                    .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ». В связи с кардинальными изменениями, произошедшими в этом году в камнеобрабатывающей отрасли и мире в целом, посещение выставки в этом году как никогда актуально.
+                                    .news__item-date 01 июня 2022
+                                .swiper-slide: a.news__item(href="#")
+                                    .news__item-title Ассоциация «КАМИ» приглашает
+                                    .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ».
+                                    .news__item-date 09 июня 2022
+                                .swiper-slide: a.news__item(href="#")
+                                    .news__item-title Ассоциация «КАМИ» приглашает вас на выставку «ИНДУСТРИЯ КАМНЯ 2022»
+                                    .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ». В связи с кардинальными изменениями, произошедшими в этом году в камнеобрабатывающей отрасли и мире в целом, посещение выставки в этом году как никогда актуально.
+                                    .news__item-date 01 июня 2022
+                                .swiper-slide: a.news__item(href="#")
+                                    .news__item-title Ассоциация «КАМИ» приглашает
+                                    .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ».
+                                    .news__item-date 09 июня 2022
+                                .swiper-slide: a.news__item(href="#")
+                                    .news__item-title Ассоциация «КАМИ» приглашает вас на выставку «ИНДУСТРИЯ КАМНЯ 2022»
+                                    .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ». В связи с кардинальными изменениями, произошедшими в этом году в камнеобрабатывающей отрасли и мире в целом, посещение выставки в этом году как никогда актуально.
+                                    .news__item-date 01 июня 2022
+                                .swiper-slide: a.news__item(href="#")
+                                    .news__item-title Ассоциация «КАМИ» приглашает
+                                    .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ».
+                                    .news__item-date 09 июня 2022
+
+                            .swiper-controls
+                                .swiper-button-prev
+                                .swiper-pagination
+                                .swiper-button-next

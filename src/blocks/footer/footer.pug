@@ -1,0 +1,40 @@
+mixin footer
+    footer.footer#footer
+        .container
+            .footer__form.question-block
+                .question-block__title Остались вопросы?
+                .question-block__subtitle Оставьте заявку и получите консультацию на возникшие вопросы у нашего специалиста
+                form.question-block__form.form.form_question
+                    .form__item
+                        input(type="text", name="NAME", placeholder="Ваше имя", required)
+                    .form__item
+                        input(type="tel", name="PHONE", placeholder="Ваш телефон", required)
+                    .form__actions
+                        input.btn.btn_main.btn_round(type="submit", value="Отправить заявку")
+        .footer__body
+            .container
+                a.footer__logo(href="/"): img(src="img/logo.svg", alt="Логотип", width="158")
+                .footer__menu
+                    ul
+                        li
+                            a(href="#") Обучающий центр
+                            ul
+                                li: a(href="#") Основные сведения
+                                li: a(href="#") Структура оргранизации
+                                li: a(href="#") Правила приема
+                                li: a(href="#") Документы для выпускников
+                        li
+                            a(href="#") Программы обучения
+                            ul
+                                li: a(href="#") График обучения
+                        li: a(href="#") Трудоустройство
+                        li: a(href="#") Новости
+                        li: a(href="#") Контакты
+                .footer__contacts
+                    a.footer__contacts-item.footer__contacts-item_phone(href="tel:88008889900") 8 (800) 888-99-00
+                    a.footer__contacts-item.footer__contacts-item_mail(href="mailto:primerinfo@mail.ru" target="_blank") primerinfo@mail.ru
+                    a.footer__contacts-item.footer__contacts-item_map(href="https://yandex.ru/maps/-/CCUNU0SjPD" target="_blank") г. Москва, ул. Большая Семеновская, д. 40, стр. 13
+
+                .footer__copyright
+                    p Вы принимаете условия <a href="#" target="_blank" rel="nofollow">политики конфиденциальности</a> и <a href="#" target="_blank" rel="nofollow">пользовательского соглашения</a> каждый раз, когда оставляете свои данные в любой форме обратной связи на сайте stanki.ru.
+                    span © Copyright 2022. Все права защищены.
