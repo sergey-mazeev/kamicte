@@ -1,0 +1,35 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block content
+    .page.page_inner
+        .container
+            +breadcrumbs(['Трудоустройство'])
+            h1.page__title Трудоустройство выпускников центра
+            main.page__content
+                img.img.img_fw(src="img/content/img_employment.jpg" alt="Трудоустройство выпускников центра КАМИ ЦТО")
+                .typography
+                    h3 Заголовок
+                    .columns
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                .tag.tag_red Наши выпускники
+
+                .graduates.graduates_slider.gallery
+                    .swiper.js-gallery-4-items
+                        .swiper-wrapper
+                            - let graduatesCounter = 0
+                            while graduatesCounter < 10
+                                .swiper-slide: .graduates__item
+                                    .graduates__item-name Иванов Василий Иванович
+                                    .graduates__item-position Оператор-наладчик КАМИ
+                                - graduatesCounter += 1
+                        .swiper-controls
+                            .swiper-button-prev
+                            .swiper-pagination
+                            .swiper-button-next

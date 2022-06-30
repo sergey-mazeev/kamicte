@@ -1,0 +1,20 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block content
+    .page.page_inner
+        .container
+            +breadcrumbs(['Документы для выпускников'])
+            h1.page__title Документы для выпускников
+            main.page__content
+                .typography.typography_maxwidth
+                    p По окончании обучения в нашем центре, каждый выпускник получит удостоверение или свидетельство установленного образца, подтверждающие пройденное обучение.
+
+                .docs-list.docs-list_fimg
+                    each doc, index in ['Учебные пособия', 'Удостоверение о повышении квалификации установленного образца', 'Свидетельство о получении профессии установленного образца']
+                        // сюда ссылку на pdf
+                        a.docs-list__item(href="img/content/img_doc" + (index + 1) + ".jpg" data-fancybox="docs")
+                            .docs-list__item-name=doc
+                            .docs-list__item-img: img(src="img/content/img_doc" + (index + 1) + ".jpg", alt=doc)

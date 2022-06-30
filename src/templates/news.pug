@@ -1,0 +1,27 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block content
+    .page.page_inner
+        .container
+            +breadcrumbs(['Новости'])
+            h1.page__title Новости
+            main.page__content
+                .news.news_list
+                    a.news__item(href="#")
+                        .news__item-title Ассоциация «КАМИ» приглашает вас
+                        .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ».
+                        .news__item-date 01 июня 2022
+                    - let newsPageCounter = 0
+                    while newsPageCounter < 11
+                        a.news__item(href="#")
+                            .news__item-title Ассоциация «КАМИ» приглашает вас на выставку «ИНДУСТРИЯ КАМНЯ 2022»
+                            .news__item-text Мы приглашаем вас на 22-ю международную выставку «ИНДУСТРИЯ КАМНЯ». В связи с кардинальными изменениями, произошедшими в этом году в камнеобрабатывающей отрасли и мире в целом, посещение выставки в этом году как никогда актуально.
+                            .news__item-date 01 июня 2022
+                            - newsPageCounter += 1
+                .pagination
+                    a.pagination__button.pagination__button_prev.pagination__button_disabled(href="#") Назад
+                    .pagination__counter 1 / 4
+                    a.pagination__button.pagination__button_next(href="#") Дальше

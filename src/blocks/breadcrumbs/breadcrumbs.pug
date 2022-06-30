@@ -1,0 +1,9 @@
+mixin breadcrumbs (arr)
+    .breadcrumbs
+        ul
+            li: a(href="/") Главная
+            each item, index in arr
+                if index === arr.length - 1
+                    li: span(href="#")= item
+                else
+                    li: a(href="#")= item

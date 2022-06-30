@@ -1,0 +1,29 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block content
+    .page.page_inner
+        .container
+            +breadcrumbs(['Основные сведения'])
+            h1.page__title Сведения об образовательной организации
+            main.page__content
+                section.block-img-text
+                    .block-img-text__img: img(data-fancybox src="img/content/img_information.jpg", alt="Сведения об образовательной организации КАМИ ЦТО")
+                    .block-img-text__content.typography
+                        h4 О нас
+                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        ul
+                            li <b>Lorem ipsum dolor sit amet,</b> consectetur adipiscing elit, sed do
+                            li <i>Lorem ipsum dolor</i> sit amet, consectetur
+                            li <a href="#">Lorem ipsum dolor</a> sit amet, consectetur adipiscing elit, sed doLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+
+                .tag.tag_red Документы
+
+                .docs-list
+                    each doc in ['Устав образовательной организации', 'Лицензия на осуществление образовательной деятельности', 'Правила внутреннего трудового распорядка', 'Правила внутреннего трудового распорядка', 'Правила внутреннего трудового распорядка', 'Правила внутреннего трудового распорядка']
+                        // сюда ссылку на pdf
+                        a.docs-list__item(href="#" target="_blank")
+                            .docs-list__item-name=doc
+                            .docs-list__item-img: img(src="img/content/img_doc.jpg", alt=doc)
