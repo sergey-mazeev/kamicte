@@ -59,6 +59,8 @@ export const images = imgMinimization;
 
 export const bitrix = series(productionConsoleAlert,bitrixConsoleAlert, parallel(imgMinimization, webfonts, css, javascript, vendor), parallel(watchFiles, productionConsoleAlert, bitrixConsoleAlert));
 
+export const buildBitrix = series(productionConsoleAlert,bitrixConsoleAlert, parallel(imgMinimization, webfonts, css, javascript, vendor), parallel(productionConsoleAlert, bitrixConsoleAlert));
+
 export const dev = series(build, parallel(watchFiles, serve, productionConsoleAlert, bitrixConsoleAlert));
 
 export const fav = faviconSimple;
