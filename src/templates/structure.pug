@@ -1,0 +1,37 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block content
+    .page.page_inner
+        .container
+            +breadcrumbs(['Структура организации'])
+            h1.page__title Структура организации
+            main.page__content
+
+                .tag.tag_red.mb_30 Руководство
+
+                .teachers.teachers_list
+                    - let teachersStructureCount = 0
+                    while teachersStructureCount < 4
+                        .teachers__item
+                            .teachers__item-name Иванов Василий Иванович
+                            .teachers__item-position Преподаватель по токарному оборудованию
+                            .teachers__item-img
+                                img(src="img/content/teachers1.jpg", alt="Имя")
+                            - teachersStructureCount += 1
+
+                .tag.tag_red.mb_30 Преподаватели
+
+                .typography
+                    p Наши преподаватели  имеют опыт более 10 лет образовательной деятельности. Каждый год они проходят курсы повышения квалификации, ездят на выездное корпоративное обучение по всему миру и постоянно улучшают программы обучения. Преподаватели центра помогают стать профессионалами в максимально короткий срок.
+
+                .teachers.teachers_list
+                    while teachersStructureCount < 11
+                        .teachers__item
+                            .teachers__item-name Иванов Василий Иванович
+                            .teachers__item-position Преподаватель по токарному оборудованию
+                            .teachers__item-img
+                                img(src="img/content/teachers1.jpg", alt="Имя")
+                            - teachersStructureCount += 1
