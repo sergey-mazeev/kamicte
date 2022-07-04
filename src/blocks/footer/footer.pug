@@ -4,7 +4,7 @@ mixin footer
             .footer__form.question-block
                 .question-block__title Остались вопросы?
                 .question-block__subtitle Оставьте заявку и получите консультацию на возникшие вопросы у нашего специалиста
-                form.question-block__form.form.form_question
+                form.question-block__form.form.form_question.js-form
                     .form__item
                         input(type="text", name="NAME", placeholder="Ваше имя", required)
                     .form__item
@@ -39,3 +39,5 @@ mixin footer
                     .footer__copyright-text
                         p Вы принимаете условия <a href="https://www.stanki.ru/politika/" target="_blank" rel="nofollow">политики конфиденциальности</a> и <a href="https://www.stanki.ru/polzovatelskoe/" target="_blank" rel="nofollow">пользовательского соглашения</a> каждый раз, когда оставляете свои данные в любой форме обратной связи на сайте stanki.ru.
                     span © Copyright 2022. Все права защищены.
+
+    +modals

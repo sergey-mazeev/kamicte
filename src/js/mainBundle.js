@@ -1,4 +1,4 @@
-import {mmodal} from './modal';
+//import {mmodal} from './modal';
 import {bindModalForm, bindForm} from "./bindForm";
 import {PhoneMask} from "./PhoneMask";
 
@@ -281,97 +281,116 @@ window.addEventListener('load', () => {
 
     expandBlock('.btn_icon-expand', '.about-goods__list-mobile');
 
-
-    // инициализация кастомных модалок
-    const on = (element, eventName, selector, fn) => {
-        if (typeof element !== 'undefined' && element) {
-
-            element.addEventListener(eventName, (event) => {
-
-                const possibleTargets = element.querySelectorAll(selector);
-                const target = event.target;
-
-                for (let i = 0; i < possibleTargets.length; i += 1) {
-                    let el = target;
-                    const p = possibleTargets[i];
-
-                    while (el && el !== element) {
-                        if (el === p) {
-                            return fn.call(p, event);
-                        }
-                        el = el.parentNode;
-                    }
-                }
-            });
-        }
-
-    }
-
-    on(document.body, 'click', '.js-modal', (e) => {
-        e.preventDefault();
-        mmodal(e.target, bindModalForm);
-        e.stopPropagation();
-    });
-
     // привязка форм
     const forms = document.querySelectorAll('.js-form');
     for (const form of forms) {
         bindForm(form);
     }
 
-
-    const elemInViewport = (elem, full) => {
-        const box = elem.getBoundingClientRect(),
-            top = box.top,
-            left = box.left,
-            bottom = box.bottom,
-            right = box.right,
-            width = document.documentElement.clientWidth,
-            height = document.documentElement.clientHeight,
-            maxWidth = full ? right - left : 0,
-            maxHeight = full ? bottom - top : 0;
-
-        return Math.min(height, bottom) - Math.max(0, top) >= maxHeight && Math.min(width, right) - Math.max(0, left) >= maxWidth;
-    }
-
-    const animateImages = () => {
-        const aboutGoodsImg = document.querySelector('.about-goods__img');
-        const aboutGoodsItems = document.querySelectorAll('.about-goods__list-item');
-        const aboutGoodsSum = document.querySelector('.about-goods__sum');
-        const questionBlock = document.querySelector('.questions-block');
-
-        if (!aboutGoodsImg && !questionBlock && !aboutGoodsItems.length && aboutGoodsSum) {
+    const bindProgramCalendar = (node) => {
+        if (!node) {
             return false;
         }
 
-        aboutGoodsImg && aboutGoodsImg.classList.add('about-goods__img_hidden');
-        aboutGoodsSum && aboutGoodsSum.classList.add('about-goods__sum_hidden');
-        for (const item of aboutGoodsItems) {
-            item.classList.add('about-goods__list-item_hidden')
+        const getDates = (el) => {
+            const string = el.getAttribute('data-dates');
+            if (!string) {
+                el.parentNode.parentNode.remove();
+                return false;
+            }
+
+            const ranges = string.split(';').map(el => el.split(','));
+
+            const getDatesBetweenDates = (start, end) => {
+                let dates = [];
+                const theDate = new Date(start);
+                const endDate = new Date(end);
+                while (theDate < endDate) {
+                    dates = [...dates, new Date(theDate)];
+                    theDate.setDate(theDate.getDate() + 1);
+                }
+                dates = [...dates, endDate];
+                return dates;
+            }
+
+            return ranges.map(el => getDatesBetweenDates(...el)).flat();
         }
 
-        window.addEventListener('scroll', () => {
-            if (aboutGoodsImg && elemInViewport(aboutGoodsImg, false)) {
-                aboutGoodsImg.classList.remove('about-goods__img_hidden');
-            }
+        const dates = getDates(node);
 
-            if (questionBlock && elemInViewport(questionBlock, true)) {
-                questionBlock.classList.add('questions-block_show-img');
-            }
+        if (dates) {
+            return new Datepicker(node, {
+                calendarWeeks: false,
+                todayHighlight: true,
+                maxView: 0,
+                language: 'ru',
+                datesDisabled: dates,
+                nextArrow: '',
+                prevArrow: '',
+            });
+        }
+        return false;
+    }
 
-            if (aboutGoodsSum && elemInViewport(aboutGoodsSum, true)) {
-                aboutGoodsSum.classList.remove('about-goods__sum_hidden');
-            }
+    const bindPrograms = (node) => {
+        if (!node) {
+            return false;
+        }
 
-            for (const item of aboutGoodsItems) {
-                if (elemInViewport(item, true)) {
-                    item.classList.remove('about-goods__list-item_hidden');
+        const root = node;
+        const titles = root.querySelectorAll('.programs__list-item');
+        const contents = root.querySelectorAll('.programs-item');
+
+        const changeTab = (anchorStr, noScroll) => {
+            for (const title of titles) {
+                if (title.classList.contains('programs__list-item_active')
+                    && title.getAttribute('href') === anchorStr) {
+                    continue;
+                }
+                if (title.classList.contains('programs__list-item_active')) {
+                    title.classList.remove('programs__list-item_active');
+                }
+                if (title.getAttribute('href') === anchorStr) {
+                    title.classList.add('programs__list-item_active');
                 }
             }
 
-        })
+            for (const content of contents) {
+                if (content.getAttribute('id') === anchorStr.substring(1)) {
+                    content.classList.remove('programs-item_hidden');
+                    !content.querySelector('.datepicker') && bindProgramCalendar(content.querySelector('.programs-item__calendar-element'));
+                    setTimeout(() => {
+                        if (window.matchMedia('(max-width: 990px)').matches && !noScroll) {
+                            content.scrollIntoView();
+                        }
+                    }, 500);
+                    continue;
+                }
+                content.classList.add('programs-item_hidden');
+            }
+        }
+
+        const searchParams = (new URL(document.location)).searchParams;
+        const target = searchParams.get('program');
+
+        if (target) {
+            changeTab(`#${target}`);
+        } else {
+            changeTab(titles[0].getAttribute('href'), true);
+        }
+
+
+
+        for (const title of titles) {
+            title.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeTab(title.getAttribute('href'));
+            })
+        }
     }
 
-    animateImages();
+    for (const programs of document.querySelectorAll('.programs')) {
+        bindPrograms(programs);
+    }
 
 })

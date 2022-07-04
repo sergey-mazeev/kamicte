@@ -106,7 +106,7 @@ const defaultHandler = (form) => {
             const formMessage = document.createElement('div');
             formMessage.classList.add('form__message');
             formMessage.classList.add('form__message_error');
-            formMessage.innerHTML = "Ошибка связи с серверов.<br>Попробуйте ещё раз или свяжитесь с нами по телефону <a href='tel:88005117743'>8 (800) 511-77-43</a>";
+            formMessage.innerHTML = "Ошибка связи с сервером.<br>Попробуйте ещё раз или свяжитесь с нами по телефону <a href='tel:88005117743'>8 (800) 511-77-43</a>";
             form.append(formMessage);
             form.classList.remove('form_loading');
             setTimeout(() => {

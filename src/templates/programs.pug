@@ -1,0 +1,82 @@
+extends main/page_default
+
+block head
+    title ЦТО KAMI
+
+block content
+    .page.page_inner
+        .container
+            +breadcrumbs(['Учебные программы'])
+            h1.page__title Учебные программы
+            main.page__content
+                .programs
+                    .programs__list
+                        // давай здесь в href сделаем символьный код элемента. При наличии в адресе ?program=ELEMENT_CODE
+                         будет выбираться нужный таб, чтобы можно было добавлять ссылки в меню
+                        a.programs__list-item(href="#program1") Программирование и эксплуатация станков с ЧПУ HNC Токарная обработка
+                        a.programs__list-item(href="#program2") Программирование и эксплуатация станков с ЧПУ HNC Фрезерная обработка
+                        a.programs__list-item(href="#program3") Программирование и эксплуатация станков с ЧПУ HNC 5-осевая обработка
+                        a.programs__list-item(href="#program4") Работа с датчиками измерения инструмента и детали
+                        a.programs__list-item(href="#program5") Оператор станков с программным управлением
+                        a.programs__list-item(href="#program6") Обслуживание и сервис станков с ЧПУ HNC
+                        a.programs__list-item(href="#program7") Повышение разряда операторов
+                    .programs__content
+                        // к .programs__content-item добавим id="ELEMENT_CODE" для работы скриптов
+                        .programs__content-item.programs-item#program1
+                            .programs-item__content
+                                .programs-item__tags
+                                    .tag.tag_red Очная форма обучения
+                                    .tag.tag_grey 72 ак. часа
+                                h4.programs-item__name Программирование и эксплуатация станков с ЧПУ HNC Токарная обработка
+                                .programs-item__text
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                .programs-item__price 50 000 руб.
+                                ul.programs-item__excellence
+                                    li
+                                        img(src="img/content/icon_1.png", alt="Подходит начинающим специалистам")
+                                        span Подходит начинающим специалистам
+
+                            .programs-item__calendar
+                                .programs-item__calendar-title Даты обучения
+                                .programs-item__calendar-body
+                                    //.programs-item__calendar-element
+                                    .programs-item__calendar-element(data-dates="07-05-2022,07-16-2022;07-27-2022,08-07-2022;08-13-2022,08-17-2022")
+
+
+                        .programs__content-item.programs-item#program2
+                            .programs-item__content
+                                .programs-item__tags
+                                    .tag.tag_red Очная форма обучения
+                                    .tag.tag_grey 72 ак. часа
+                                h4.programs-item__name Программирование и эксплуатация станков с ЧПУ HNC
+                                .programs-item__text
+                                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                .programs-item__price 1 150 000 руб.
+                            .programs-item__calendar
+                                .programs-item__calendar-title Даты обучения
+                                .programs-item__calendar-body
+                                    // если даты не проставлены, то давай просто не добавлять data-dates атрибут
+                                    .programs-item__calendar-element
+
+                        - let programsCount = 3
+                        while programsCount < 8
+                            .programs__content-item.programs-item(id="program" + programsCount)
+                                .programs-item__content
+                                    .programs-item__tags
+                                        .tag.tag_red Очная форма обучения
+                                        .tag.tag_grey 72 ак. часа
+                                    h4.programs-item__name Программирование и эксплуатация станков с ЧПУ HNC Токарная обработка с длинным названием курса
+                                    .programs-item__text
+                                        p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    .programs-item__price 50 000 руб.
+                                    ul.programs-item__excellence
+                                        li
+                                            img(src="img/content/icon_1.png", alt="Подходит начинающим специалистам")
+                                            span Подходит начинающим специалистам
+
+                                .programs-item__calendar
+                                    .programs-item__calendar-title Даты обучения
+                                    .programs-item__calendar-body
+                                        //.programs-item__calendar-element
+                                        .programs-item__calendar-element(data-dates="07-10-2022,07-14-2022;07-21-2022,08-01-2022")
+                            - programsCount += 1
