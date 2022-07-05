@@ -281,6 +281,24 @@ window.addEventListener('load', () => {
 
     expandBlock('.btn_icon-expand', '.about-goods__list-mobile');
 
+
+    // вызов модалок форм на странице программ
+    Fancybox.bind('.js-program-btn', {
+        groupAll: false,
+        type: "inline",
+        on: {
+            done: () => {
+                const programNameNode = document.querySelector('.programs-item:not(.programs-item_hidden) .programs-item__name');
+                const nameInput = document.querySelector('input[name="PROPERTY[COURSE_NAME]"]');
+                if (programNameNode) {
+                    nameInput.value = programNameNode.innerText;
+                } else {
+                    nameInput.value = '';
+                }
+            },
+        }
+    })
+
     // привязка форм
     const forms = document.querySelectorAll('.js-form');
     for (const form of forms) {
@@ -378,7 +396,6 @@ window.addEventListener('load', () => {
         } else {
             changeTab(titles[0].getAttribute('href'), true);
         }
-
 
 
         for (const title of titles) {

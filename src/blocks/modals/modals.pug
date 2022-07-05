@@ -40,3 +40,22 @@ mixin modals
                         .form__item.form__item_checkbox
                             input#inputSuggestion1(type="checkbox" checked="checked" required)
                             label(for="inputSuggestion1") Согласен на обработку <a href="https://www.stanki.ru/politika/" target="_blank">персональных данных</a>
+
+    section.modal#offerModal(style="display: none;")
+        .modal__body
+            .modal__header
+                .modal__title Записаться
+            .modal__content
+                form.form.form_modal.js-form(action="/ajax/" method="post")
+                    input(type="hidden" name="PROPERTY[COURSE_NAME]")
+                    .form__item
+                        input.form__input(type="text" name="PROPERTY[NAME]" placeholder="Ваше имя *" autocomplete="off" required)
+                    .form__item
+                        input.form__input(type="tel" name="PROPERTY[PHONE]" placeholder="Телефон *" required)
+                    .form__item
+                        textarea.form__input(name="PROPERTY[TEXT]" placeholder="Сообщение")
+                    .form__actions
+                        button.btn.btn_main(value="Заказать" type="submit") Отправить
+                        .form__item.form__item_checkbox
+                            input#inputSuggestion1(type="checkbox" checked="checked" required)
+                            label(for="inputSuggestion1") Согласен на обработку <a href="https://www.stanki.ru/politika/" target="_blank">персональных данных</a>

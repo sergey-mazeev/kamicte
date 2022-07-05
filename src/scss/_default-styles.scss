@@ -162,6 +162,10 @@ b, strong {
     }
   }
 
+  &_rounded {
+    border-radius: 10px;
+  }
+
 }
 
 .front-slider {
@@ -2182,14 +2186,32 @@ b, strong {
     }
   }
 
+  &__offer {
+    margin-bottom: 28px;
+  }
+
   &__price {
     border: 1px solid #D6D6DF;
     text-align: center;
-    display: inline-block;
     border-radius: 10px;
     padding: 18px 34px 17px;
     font-weight: 600;
-    margin-bottom: 38px;
+    margin-right: 16px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 58px;
+  }
+
+  &__btn {
+    margin-bottom: 10px;
+    padding-left: 34px;
+    padding-right: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 58px;
   }
 
   &__excellence {
