@@ -1390,7 +1390,8 @@ b, strong {
     input[type="text"],
     input[type="email"],
     input[type="tel"],
-    input[type="password"] {
+    input[type="password"],
+    textarea {
       display: block;
       width: 100%;
       background-color: #ffffff;
@@ -1411,13 +1412,18 @@ b, strong {
         color: #7D7D7D;
       }
     }
+
+    textarea {
+      height: 82px;
+    }
   }
 
   &_modal {
     input[type="text"],
     input[type="email"],
     input[type="tel"],
-    input[type="password"] {
+    input[type="password"],
+    textarea {
       border: 1px solid #7D7D7D;
     }
     .form__item {
